@@ -94,8 +94,7 @@ function GameBoardElement() {
     }
     function calcSameCandies(arg, matrix) {
         let argCoord = {
-            column: arg.column,
-            row: arg.row,
+            ...arg,
             type: matrix[arg.column][arg.row].type,
         };
         vertical = []; //verev-nerqev
@@ -151,7 +150,7 @@ function GameBoardElement() {
         }
         //right candies check
         let i3 = argCoord.column + 1;
-        while (i2 < matrix.length) {
+        while (i3 < matrix.length) {
             if (matrix[i3][j2].type === argCoord.type) {
                 horizontal.push({
                     column: i3,
@@ -185,12 +184,10 @@ function GameBoardElement() {
                 });
                 return newMatrix;
             });
-        }
-        else {
-            candyCrush(arg, matrix)
+        } else {
+            candyCrush(arg, matrix);
         }
     }
-
 
     function candyCrush(arg, matrix) {
         let matrixClone = JSON.parse(JSON.stringify(matrix));
@@ -219,13 +216,12 @@ function GameBoardElement() {
                     candies[Math.floor(Math.random() * candies.length)];
                 if (matrixClone[i].length < columns) {
                     matrixClone[i].unshift({
-                    
                         type: color_src,
                     });
                 }
             }
         }
-        setMatrix(matrixClone)
+        setMatrix(matrixClone);
     }
 
     return (
