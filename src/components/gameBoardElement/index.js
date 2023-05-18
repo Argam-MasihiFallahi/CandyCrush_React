@@ -90,6 +90,7 @@ function GameBoardElement() {
             let cloneMatrix = matrixHandler();
             setMatrix(cloneMatrix.matrix);
             calcSameCandies(cloneMatrix.prev, cloneMatrix.matrix);
+            calcSameCandies(cloneMatrix.curr, cloneMatrix.matrix);
         }
     }
     function calcSameCandies(arg, matrix) {
