@@ -1,0 +1,6 @@
+.GameBoardElement {
+    border: 3px solid silver;
+    border-radius: 15px;
+    display: flex;
+    background-color: lightblue;;
+}
